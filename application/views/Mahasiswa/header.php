@@ -21,7 +21,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand" href="<?= base_url() ?>">MIPA Alumni</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,15 +29,18 @@
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Components</span>
+            <i class="fa fa-fw fa-search"></i>
+            <span class="nav-link-text">Pencarian</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
+          <ul class="sidenav-second-level collapsed" id="collapseComponents">
             <li>
-              <a href="navbar.html">Navbar</a>
+              <a class="fa fa-table mr-sm-2"  href="<?= base_url() ?>index.php/Mahasiswa/dashboard"> Berdasarkan Nim</a>
             </li>
             <li>
-              <a href="cards.html">Cards</a>
+              <a class="fa fa-table" href="cards.html"> Berdasarkan Nama</a>
+            </li>
+            <li>
+              <a class="fa fa-table" href="cards.html"> Berdasarkan Tahun Lulus</a>
             </li>
           </ul>
         </li>
@@ -52,15 +55,11 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         
-         
-        
-        
         <li class="nav-item">
           <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
             <i  class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
 
-        
       </ul>
     </div>
   </nav>
