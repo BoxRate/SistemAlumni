@@ -7,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Sistem Informasi Alumni MIPA</title>
+  <title>Sistem Informasi Alumni Unsyiah</title>
+  <!-- icon image -->
+  <link href="<?= base_url() ?>asset/image/logo_unsyiah.png" rel="icon">
   <!-- Bootstrap core CSS-->
   <link href="<?php echo base_url()?>asset/sb-admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -16,8 +18,13 @@
   <link href="<?php echo base_url()?>asset/sb-admin/css/sb-admin.css" rel="stylesheet">
 </head>
 
-<body class="bg-dark">
+<body class="bg-light">
   <div class="container">
+
+  <div class="text-center mt-5">
+    <img src="<?php echo base_url()?>asset/image/logo4xtrans.png" class="img-fluid" alt="Responsive image" width="40%">
+  </div>
+
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
       <div class="card-body">
@@ -33,9 +40,7 @@
           </div>
           <input class="btn btn-primary btn-block" type="submit" value="Login" >
         </form>
-        <div class="text-center">
-          <a class="d-block small mt-3" href="<?php echo base_url()?>index.php/Auth/signup">Register an Account</a>
-        </div>
+      
       </div>
     </div>
   </div>

@@ -7,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Laman Mahasiswa</title>
+  <title>Sistem Informasi Alumni Unsyiah</title>
+  <!-- icon image -->
+  <link href="<?= base_url() ?>asset/image/logo_unsyiah.png" rel="icon">
   <!-- Bootstrap core CSS-->
   <link href="<?php echo base_url()?>asset/sb-admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -16,34 +18,111 @@
   <link href="<?php echo base_url()?>asset/sb-admin/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url()?>asset/sb-admin/css/sb-admin.css" rel="stylesheet">
+
+ <!-- Bootstrap core JavaScript-->
+ <script src="<?php echo base_url()?>asset/sb-admin/vendor/jquery/jquery.min.js"></script>
+
+   <!-- Page level plugin JavaScript-->
+  <script src="<?php echo base_url()?>asset/sb-admin/vendor/chart.js/Chart.min.js"></script>
+  <script src="<?php echo base_url()?>asset/sb-admin/vendor/datatables/jquery.dataTables.js"></script>
+  <script src="<?php echo base_url()?>asset/sb-admin/vendor/datatables/dataTables.bootstrap4.js"></script>
+  <script src="<?php echo base_url()?>asset/sb-admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="<?php echo base_url()?>asset/sb-admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <style>
+     @media (min-width: 992px) {
+        .animate {
+          animation-duration: 0.3s;
+          -webkit-animation-duration: 0.3s;
+          animation-fill-mode: both;
+          -webkit-animation-fill-mode: both;
+        }
+      }
+
+      @keyframes slideIn {
+        0% {
+          transform: translateY(1rem);
+          opacity: 0;
+        }
+        100% {
+          transform:translateY(0rem);
+          opacity: 1;
+        }
+        0% {
+          transform: translateY(1rem);
+          opacity: 0;
+        }
+      }
+
+      @-webkit-keyframes slideIn {
+        0% {
+          -webkit-transform: transform;
+          -webkit-opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateY(0);
+          -webkit-opacity: 1;
+        }
+        0% {
+          -webkit-transform: translateY(1rem);
+          -webkit-opacity: 0;
+        }
+      }
+
+      .slideIn {
+        -webkit-animation-name: slideIn;
+        animation-name: slideIn;
+      
+      }
+    </style>
+    
+
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
   <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="<?= base_url() ?>">MIPA Alumni</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color: #e3f2fd;" id="mainNav">
+    <a class="navbar-brand" href="<?= base_url() ?>">
+      <img src="<?php echo base_url()?>asset/image/logo4xtrans.png" class="img-fluid" alt="Responsive image" width="60%">
+    </a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+      <li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="Beranda">
+          <a class="nav-link" href="<?= base_url() ?>">
+            <i class="fa fa-fw fa-home"></i>
+            <span class="nav-link-text">Beranda</span>
+          </a>
+        </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pencarian">
+          <a class="nav-link nav-link-collapse" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-search"></i>
             <span class="nav-link-text">Pencarian</span>
           </a>
-          <ul class="sidenav-second-level collapsed" id="collapseComponents">
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-              <a class="fa fa-table mr-sm-2"  href="<?= base_url() ?>index.php/Mahasiswa/dashboard"> Berdasarkan Nim</a>
+              <a class="fa fa-search mr-sm-2"  href="<?= base_url() ?>index.php/Mahasiswa/nim"> Berdasarkan Nim</a>
             </li>
             <li>
-              <a class="fa fa-table" href="cards.html"> Berdasarkan Nama</a>
+              <a class="fa fa-search" href="cards.html"> Berdasarkan Nama</a>
             </li>
             <li>
-              <a class="fa fa-table" href="cards.html"> Berdasarkan Tahun Lulus</a>
+              <a class="fa fa-search" href="cards.html"> Berdasarkan Tahun Lulus</a>
             </li>
           </ul>
         </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Data Alumni">
+          <a class="nav-link" href="<?= base_url() ?>">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Data Alumni</span>
+          </a>
+        </li>
+
         
       </ul>
       <ul class="navbar-nav sidenav-toggler">
@@ -52,33 +131,35 @@
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
+
+       
       </ul>
+
+      
       <ul class="navbar-nav ml-auto">
-        
-        <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
-            <i  class="fa fa-fw fa-sign-out"></i>Logout</a>
+
+        <li class="nav-item avatar dropdown">
+          <a class="btn dropdown" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"> <?php echo $User['Nama'] ?> 
+            <?php if($User['Image'] != "") { ?>
+              <img src="<?= base_url()?>/asset/image/Mahasiswa/<?= $User['Image'] ?>" width="40px" height="40px" class="rounded-circle z-depth-0" alt="avatar image">
+            <?php } else { ?>
+              <img src="<?= base_url()?>/asset/image/Mahasiswa/default.png" width="40px" height="40px" class="rounded-circle z-depth-0" alt="avatar image">
+            <?php } ?>
+            </a>
+          <ul class="dropdown-menu dropdown-menu-right dropdown-secondary animate slideIn" aria-labelledby="navbarDropdownMenuLink-5">
+              <li>
+              <a class="nav-link" href="<?php echo base_url() ?>index.php/mahasiswa/setting">
+                <i  class="fa fa-fw fa-cog"></i> Setting</a>
+              </li>
+              <li>
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+                <i  class="fa fa-fw fa-sign-out"></i> Logout</a>
+              </li>
+          </ul>
         </li>
 
       </ul>
     </div>
   </nav>
 
-   <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url() ?>index.php/Mahasiswa/dashboard/logout">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>

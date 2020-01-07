@@ -34,7 +34,8 @@ class Login extends CI_Controller {
 					$session_data = array(
 						'Nama' => $row->Nama,
 						'Nim' => $row->Nim,
-						'Email' => $row->Email
+						'Email' => $row->Email,
+						'Image' => $row->image
 					);
 					
 					$this->session->set_userdata($session_data);
