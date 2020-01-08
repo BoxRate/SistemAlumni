@@ -3,15 +3,15 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a class="fa fa-search" > Cari Berdasarkan Nim</a>
+          <a class="fa fa-search" > Cari Berdasarkan Nama Alumni</a>
         </li>
       </ol>
       <?= $this->session->flashdata('message'); ?>
       <!-- Icon Cards-->
       <div class="row">
         <div class="col-sm-6 mb-3">
-            <form class="form-inline" action="<?= base_url() ?>index.php/Mahasiswa/nim/getNim" method="post">
-                <input class="form-control mr-sm-2" type="number" name="nim" placeholder="Nim" aria-label="Search" required="">
+            <form class="form-inline" action="<?= base_url() ?>index.php/Mahasiswa/nama/getNama" method="post">
+                <input class="form-control mr-sm-2" type="text" name="nama" placeholder="Nama" aria-label="Search" required="">
                 <input class="btn btn-outline-primary my-2 my-sm-0" type="submit" value="Search">
             </form>
         </div>
@@ -24,7 +24,7 @@
           <div class="row">
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th>Nim</th>
@@ -37,17 +37,18 @@
               </thead>
             
               <tbody>
-                  <?php if(!empty($Pekerjaan)) { ?>
+                  <?php if(!empty($Alumni)) { ?>
                 <tr>
-                  <td><?= $Nim?></td>
-                  <td><?= $Nama?></td>
-                  <td><?= $Jurusan?></td>
-                  <td><?= $Email?></td>
-                  <td><?= $Tahun_Keluar?></td>
-                  <td><?= $Pekerjaan?></td>
+                <?php foreach($Alumni as $keys): ?>
+                  <td><?= $keys['Nim']?></td>
+                  <td><?= $keys['Nama']?></td>
+                  <td><?= $keys['Jurusan']?></td>
+                  <td><?= $keys['Email']?></td>
+                  <td><?= $keys['Tahun_Keluar']?></td>
+                  <td><?= $keys['Pekerjaan']?></td>
                 </tr>
-
-                  <?php  } ?>
+                <?php endforeach; ?>
+                <?php  } ?>
               
               </tbody>
             </table>

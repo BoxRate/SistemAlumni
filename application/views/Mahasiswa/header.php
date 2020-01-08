@@ -80,7 +80,7 @@
 
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
+<body class="fixed-nav sticky-footer bg-light sidenav-toggled" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color: #e3f2fd;" id="mainNav">
     <a class="navbar-brand" href="<?= base_url() ?>">
@@ -105,19 +105,19 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-              <a class="fa fa-search mr-sm-2"  href="<?= base_url() ?>index.php/Mahasiswa/nim"> Berdasarkan Nim</a>
+              <a class="fa fa-search"  href="<?= base_url() ?>index.php/Mahasiswa/nim"> Berdasarkan Nim</a>
             </li>
             <li>
-              <a class="fa fa-search" href="cards.html"> Berdasarkan Nama</a>
+              <a class="fa fa-search" href="<?= base_url() ?>index.php/Mahasiswa/nama"> Berdasarkan Nama</a>
             </li>
             <li>
-              <a class="fa fa-search" href="cards.html"> Berdasarkan Tahun Lulus</a>
+              <a class="fa fa-search" href="<?= base_url() ?>index.php/Mahasiswa/tahun"> Berdasarkan Tahun Lulus</a>
             </li>
           </ul>
         </li>
 
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Data Alumni">
-          <a class="nav-link" href="<?= base_url() ?>">
+          <a class="nav-link" href="<?= base_url() ?>index.php/Mahasiswa/dataAlumni">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Data Alumni</span>
           </a>
