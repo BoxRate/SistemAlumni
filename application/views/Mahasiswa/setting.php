@@ -11,18 +11,11 @@
       <div class="row">
       <div class = "col-md-6 mb-3">
         <form action="<?php echo base_url() ?>index.php/Mahasiswa/setting/simpanData" method="post" enctype="multipart/form-data">
-            <div class="row">
-                <div class="form-group col-lg-6">       
-                    <label for="nama">Nama</label>
-                    <input class="form-control" id="nama" type="text" name="nama" aria-describedby="Nama" value="<?= $User['Nama'] ?>">    
-                    <small class="text-danger"><?php echo form_error('nama') ?></small>     
-                </div>
-                <div class="form-group col-lg-6">       
-                    <label for="nim">Nim</label>
-                    <input class="form-control" id="nim" type="number" name="nim" aria-describedby="Nim" value="<?= $User['Nim'] ?>" readonly="readonly">         
-                    <small class="text-danger"><?php echo form_error('nim') ?></small>
-                </div>
-            </div>
+          <div class="form-group">       
+              <label for="nama">Nama</label>
+              <input class="form-control" id="nama" type="text" name="nama" aria-describedby="Nama" value="<?= $User['Nama'] ?>">    
+              <small class="text-danger"><?php echo form_error('nama') ?></small>     
+          </div>
           <div class="form-group">
             <label for="email">Email</label>
             <input class="form-control" id="email" type="email" name="email" aria-describedby="emailHelp" value="<?= $User['Email'] ?>">

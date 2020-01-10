@@ -38,6 +38,13 @@
             <label for="exampleInputPassword1">Password</label>
             <input class="form-control" id="exampleInputPassword1" type="password" name="password" placeholder="Password" required="">
           </div>
+          <div class="form-group">
+          <label for="role">Password</label>
+            <select name="role" class="form-control" id="role">
+              <option value="Mahasiswa" >Mahasiswa</option>
+              <option value="Alumni" >Alumni</option>
+            </select>
+          </div>
           <input class="btn btn-primary btn-block" type="submit" value="Login" >
         </form>
       

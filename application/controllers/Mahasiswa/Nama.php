@@ -6,7 +6,7 @@ class Nama extends CI_Controller {
 	public function __construct() {
         parent::__construct();
         $this->load->library('form_validation');
-		if(!$this->session->userdata('Nim')) {
+		if($this->session->userdata('Role') != "Mahasiswa") {
 			redirect('Auth/login');
 		}
 	}

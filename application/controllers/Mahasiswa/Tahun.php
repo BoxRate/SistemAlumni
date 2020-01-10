@@ -8,7 +8,7 @@ class Tahun extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
-        if(!$this->session->userdata('Nim')) {
+        if($this->session->userdata('Role') != "Mahasiswa") {
 			redirect('Auth/login');
 		}
 

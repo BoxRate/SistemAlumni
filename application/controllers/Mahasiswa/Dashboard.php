@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller {
         parent::__construct();
 		$this->load->library('form_validation');
 		$this->load->model('dashboard_model');
-		if(!$this->session->userdata('Nim')) {
+		if($this->session->userdata('Role') != "Mahasiswa") {
 			redirect('Auth/login');
 		}
 	}

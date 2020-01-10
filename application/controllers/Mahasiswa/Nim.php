@@ -3,26 +3,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Nim extends CI_Controller {
 
+    var $data;
+
 	public function __construct() {
         parent::__construct();
         $this->load->library('form_validation');
-		if(!$this->session->userdata('Nim')) {
+		if($this->session->userdata('Role') != "Mahasiswa") {
 			redirect('Auth/login');
-		}
+        }
+        
+        
+		$dataUser = $this->session->all_userdata();
+
+		$this->data =array(
+			'User' => $dataUser
+        );
 	}
 
 	public function index()
 	{
       
-		$dataUser = $this->session->all_userdata();
-
-		$data =array(
-			'User' => $dataUser
-        );
         
-        $this->load->view('Mahasiswa/header.php',$data);
-		$this->load->view('Mahasiswa/nim.php',$data);
-		$this->load->view('Mahasiswa/footer.php',$data);
+        $this->load->view('Mahasiswa/header.php',$this->data);
+		$this->load->view('Mahasiswa/nim.php',$this->data);
+		$this->load->view('Mahasiswa/footer.php',$this->data);
 	}
     
     function getNim(){ 

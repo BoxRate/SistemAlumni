@@ -3,44 +3,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Setting extends CI_Controller {
 
+    var $data;
+
 	public function __construct() {
         parent::__construct();
         $this->load->library('form_validation');
-		if(!$this->session->userdata('Nim')) {
+		if($this->session->userdata('Role') != "Mahasiswa") {
 			redirect('Auth/login');
-		}
+        }
+        
+        $dataUser = $this->session->all_userdata();
+
+		$this->data =array(
+			'User' => $dataUser
+        );
 	}
 
 	public function index()
-	{
-      
-		$dataUser = $this->session->all_userdata();
-
-		$data =array(
-			'User' => $dataUser
-        );
-        
-        $this->load->view('Mahasiswa/header.php',$data);
-		$this->load->view('Mahasiswa/setting.php',$data);
-        $this->load->view('Mahasiswa/footer.php',$data);
+	{   
+        $this->load->view('Mahasiswa/header.php',$this->data);
+		$this->load->view('Mahasiswa/setting.php',$this->data);
+        $this->load->view('Mahasiswa/footer.php',$this->data);
     }
 
 
     function simpanData() {
 	
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
-		$this->form_validation->set_rules('nim', 'Nim', 'required|trim');
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
 		$this->form_validation->set_rules('password1', 'Password', 'trim|min_length[3]|matches[password2]');
         $this->form_validation->set_rules('password2', 'Konfirmasi Password', 'trim|matches[password1]');
-       
-        if (!empty($_FILES["image"])) {
+        $gbr;
+        if (!empty($_FILES["image"]['name'])) {
             $config['upload_path']          = './asset/image/Mahasiswa';
             $config['allowed_types']        = 'gif|jpg|png';
             $config['encrypt_name']          = TRUE;
             $config['max_size']             = 1024;
             $config['overwrite']			= true;
-            $config['file_name']            = $this->input->post('nim');
+            // $config['file_name']            = $this->input->post('nim');
             // $config['max_width']            = 1024;
             // $config['max_height']           = 768;
 
@@ -51,6 +51,7 @@ class Setting extends CI_Controller {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">'.$error['error'].'</div>');
                 redirect('Mahasiswa/setting');
             } else {
+                $gbr = $this->upload->data();
                 unlink("./asset/image/Mahasiswa/".$this->input->post('old_image'));
             }
         } 
@@ -58,13 +59,17 @@ class Setting extends CI_Controller {
         if ($this->form_validation->run() == false) {
 			$this->index();
 		} else {
-            $gbr = $this->upload->data();
-			$data = array(
+
+            $data = array(
 				'Nama' => $this->input->post('nama'),
-				'Nim' => $this->input->post('nim'),
-                'Email' => $this->input->post('email'),
-                'image' => $gbr['file_name']
+				'Nim' => $this->data['User']['Nim'],
+                'Email' => $this->input->post('email')
             );
+           
+            if(!$gbr==null) {
+                $data['image'] = $gbr['file_name'];
+                
+            }
             
             $password = $this->input->post('password1');
             if($password != '') {

@@ -23,10 +23,17 @@ class Login extends CI_Controller {
 		} else {
 			$nim = $this->input->post('nim');
 			$password = md5($this->input->post('password'));
+			$role = $this->input->post('role');
 
 			$this->db->where('Nim', $nim);
 			$this->db->where('Password', $password);
-			$query = $this->db->get('mahasiswa');
+
+			$query;
+			if ($role == "Mahasiswa") {
+				$query = $this->db->get('mahasiswa');
+			} else {
+				$query = $this->db->get('alumni');
+			}
 
 			if ($query->num_rows() > 0) {
 
@@ -35,13 +42,19 @@ class Login extends CI_Controller {
 						'Nama' => $row->Nama,
 						'Nim' => $row->Nim,
 						'Email' => $row->Email,
-						'Image' => $row->image
+						'Image' => $row->image,
+						'Role' => $row->role
 					);
 					
 					$this->session->set_userdata($session_data);
 				}
+
+				if ($role == "Mahasiswa") {
+					redirect('Mahasiswa/dashboard');
+				} else {
+					redirect('Alumni/dashboard');
+				}	
 				
-				redirect('Mahasiswa/dashboard');
 	
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Autentkasi Gagal</div>');

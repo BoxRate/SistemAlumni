@@ -8,7 +8,7 @@ class DataAlumni extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
-        if(!$this->session->userdata('Nim')) {
+        if($this->session->userdata('Role') != "Mahasiswa") {
 			redirect('Auth/login');
 		}
 
@@ -40,7 +40,7 @@ class DataAlumni extends CI_Controller {
             <tr>
             <td>'.$i.'</td>
             <td>'.$jr.'</td>
-            <td><a href="dataAlumni/getJurusan?jurusan='.$jr.'">Tampilkan Per Prodi</a></td>
+            <td><a href="dataAlumni/getJurusan?jurusan='.$jr.'">Tampilkan Per Tahun Akademik</a></td>
             </tr>
             ';
             $i+=1;
