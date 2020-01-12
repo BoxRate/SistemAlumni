@@ -30,10 +30,22 @@ class Dashboard extends CI_Controller {
 
 		$dataUser = $this->session->all_userdata();
 
+		$dataPekerjaan = array (
+			'IT' => $this->db->get_where("alumni", "Pekerjaan = 'Teknologi Informasi'")->num_rows(),
+			'Energi' => $this->db->get_where("alumni", "Pekerjaan = 'Energi'")->num_rows(),
+			'Kesehatan' => $this->db->get_where("alumni", "Pekerjaan = 'Kesehatan'")->num_rows(),
+			'PNS' => $this->db->get_where("alumni", "Pekerjaan = 'PNS'")->num_rows(),
+			'Swasta' => $this->db->get_where("alumni", "Pekerjaan = 'Swasta'")->num_rows(),
+			'Wirausaha' => $this->db->get_where("alumni", "Pekerjaan = 'Wirausaha'")->num_rows(),
+			'Scientist' => $this->db->get_where("alumni", "Pekerjaan = 'Scientist'")->num_rows()
+		);
+
+
 		$data =array(
 			'User' => $dataUser,
 			'Tahun' => $dataTahun,
-			'Count'	=> $dataCount
+			'Count'	=> $dataCount,
+			'Pekerjaan' =>$dataPekerjaan
 		);
 
         

@@ -34,8 +34,6 @@
 
       </div>
 
-      
-      
 </div>
 
 <script>
@@ -109,7 +107,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: ["Energi", "Kesehatan", "IT", "PNS", "Swasta", "Wirausaha", "Scientist"],
     datasets: [{
-      data: [12.21, 15.58, 11.25, 8.32,11, 11, 11],
+      data: [<?=$Pekerjaan['Energi']?>, <?=$Pekerjaan['Kesehatan']?>, <?=$Pekerjaan['IT']?>,<?=$Pekerjaan['PNS']?>,<?=$Pekerjaan['Swasta']?>, <?=$Pekerjaan['Wirausaha']?>, <?=$Pekerjaan['Scientist']?>],
       backgroundColor: ['#d3f4ff', '#b2dffb', '#e7a4e4', '#ffc55c', '#5f6caf', '#ffb677', '#ff8364'],
     }],
   },
