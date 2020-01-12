@@ -47,7 +47,11 @@
           </div> -->
           <input class="btn btn-primary btn-block" type="submit" value="Login" >
         </form>
-      
+        <div class="text-center">
+          <a class="d-block small mt-3" href="<?php echo base_url()?>index.php/Auth/signup">Register</a>
+    
+        </div>
+
       </div>
     </div>
   </div>

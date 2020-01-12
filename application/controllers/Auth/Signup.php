@@ -18,6 +18,7 @@ class Signup extends CI_Controller {
 
 		$this->form_validation->set_rules('nama', 'Nama', 'required|trim');
 		$this->form_validation->set_rules('nim', 'Nim', 'required|trim');
+		// $this->form_validation->set_rules('role', 'Role', 'required|trim');
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
 		$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]|matches[konfirm_password]');
 		$this->form_validation->set_rules('konfirm_password', 'Password', 'required|trim|matches[konfirm_password]');
@@ -26,15 +27,22 @@ class Signup extends CI_Controller {
 		if ($this->form_validation->run() == false) {
 			$this->load->view('Auth/signup');
 		} else {
+
 			$data = array(
 				'Nama' => $this->input->post('nama'),
 				'Nim' => $this->input->post('nim'),
 				'Email' => $this->input->post('email'),
-				'Password' => md5($this->input->post('password'))
+				'Password' => md5($this->input->post('password')),
+				'role' =>  $this->input->post('role')
 			);
 
-			$check = $this->register_model->insert($data);
-
+			$check;
+			if ($this->input->post('role') == "Mahasiswa") {
+				$check = $this->register_model->insert($data);
+			} else {
+				$check = $this->db->insert('alumni',$data);
+			}
+ 
 			if($check) {
 				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Selamat Kamu Telah Terdaftar, Silahkan Login Untuk Melanjutkan</div>');
 				redirect('Auth/login');

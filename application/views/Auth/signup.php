@@ -53,6 +53,13 @@
             <small class="text-danger"><?php echo form_error('password') ?></small>  
             </div>
           </div>
+           <div class="form-group">
+          <label for="role">Sebagai</label>
+            <select name="role" class="form-control" id="role">
+              <option value="Mahasiswa" >Mahasiswa</option>
+              <option value="Alumni" >Alumni</option>
+            </select>
+          </div>
           <input class="btn btn-primary btn-block" type="submit" value="Register" >
         </form>
         <div class="text-center">
