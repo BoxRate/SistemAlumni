@@ -53,7 +53,8 @@ class Profile extends CI_Controller {
                 'Tanggal_Lahir' => $this->input->post('ttl'),
                 'Alamat' =>  $this->input->post('alamat'),
                 'Pekerjaan' => $this->input->post('pekerjaan'),
-                'No_Telepon' => $this->input->post('phone')
+                'No_Telepon' => $this->input->post('phone'),
+                'Nama_Pekerjaan' => $this->input->post('nama_pekerjaan')
             );
 
             if ( $this->input->post('password') != "") {

@@ -43,7 +43,7 @@ ul.timeline > li:before {
       <!-- Breadcrumbs-->
       <ol class="breadcrumb bg"  style="background:#edf7fa;">
         <li class="breadcrumb-item">
-          <a class="fa fa-home"> Beranda Alumni</a>
+          <a class="fa fa-home"> Data <?=$Data['Nim']?></a>
         </li>
       </ol>
 
@@ -59,14 +59,14 @@ ul.timeline > li:before {
                     <div class="well well-sm">
                         <div class="media">
                             <a class="thumbnail pull-left mr-4">
-                                <?php if($User['Image'] != "") { ?>
-                                    <img class="media-object" src="<?= base_url()?>/asset/image/Mahasiswa/<?= $User['Image'] ?>" width="230px" height="230px"  alt="avatar image">
+                                <?php if($Data['Image'] != "") { ?>
+                                    <img class="media-object" src="<?= base_url()?>/asset/image/Mahasiswa/<?= $Data['Image'] ?>" width="230px" height="230px"  alt="avatar image">
                                     <?php } else { ?>
                                     <img class="media-object"  src="<?= base_url()?>/asset/image/Mahasiswa/default.png" width="230px" height="230px" alt="avatar image">
                                 <?php } ?>
                             </a>
                             <div class="media-body">
-                                <h4 class="media-heading text-uppercase font-weight-bold"><?= $User['Nama'] ?> 
+                                <h4 class="media-heading text-uppercase font-weight-bold"><?= $Data['Nama'] ?> 
                                 <?php if($Data['Jk'] == "L") { ?>
                                     <i class=" font-weight-bold fa fa-mars text-primary"></i>
                                     <?php } else { ?>

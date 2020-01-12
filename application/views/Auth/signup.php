@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +16,11 @@
   <link href="<?php echo base_url()?>asset/sb-admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url()?>asset/sb-admin/css/sb-admin.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  
+
+
 </head>
 
 <body class="bg-dark">
@@ -53,6 +60,22 @@
             <small class="text-danger"><?php echo form_error('password') ?></small>  
             </div>
           </div>
+          <div class="form-group">
+          <label for="jurusan">Jurusan</label>
+            <select name="jurusan" class="form-control" id="">
+              <option value="Matematika" >Matematika</option>
+              <option value="Fisika" >Fisika</option>
+              <option value="Kimia" >Kimia</option>
+              <option value="Biologi" >Biologi</option>
+              <option value="Teknik Elektronika" >Teknik Elektronika</option>
+              <option value="Informatika" >Informatika</option>
+              <option value="Manajemen Informatika" >Manajemen Informatika</option>
+              <option value="Statistika" >Statistika</option>
+              <option value="Farmasi" >Farmasi</option>
+            </select>
+          </div>
+
+          
            <div class="form-group">
           <label for="role">Sebagai</label>
             <select name="role" class="form-control" id="role">
@@ -60,11 +83,26 @@
               <option value="Alumni" >Alumni</option>
             </select>
           </div>
+
+          <div id="tahunGroup" class="form-group" >
+            <div class="form-row">
+              <div class="col-md-6">
+                  <label for="tahun_masuk">Tahun Masuk</label>
+                  <input class="form-control" id="tahun_masuk" type="text" placeholder="" name="tahun_masuk" >
+              </div>
+              <div class="col-md-6">
+                <label for="tahun_keluar">Tahun Lulus</label>
+                <input class="form-control" id="tahun_keluar" type="text" placeholder="" name="tahun_keluar" >
+            </div>
+            <small class="text-danger"><?php echo form_error('tahun_keluar') ?></small>  
+            </div>
+            
+          </div>
           <input class="btn btn-primary btn-block" type="submit" value="Register" >
+          </div>
         </form>
-        <div class="text-center">
+        <div class="text-center mb-3">
           <a class="d-block small mt-3" href="<?php echo base_url()?>index.php/Auth/login">Login Page</a>
-    
         </div>
       </div>
     </div>
@@ -77,3 +115,26 @@
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function(){
+      
+      var role = $('#role').val();
+           if(role == 'Alumni')
+           {
+            $('#tahunGroup').show();
+           } else {
+            $('#tahunGroup').hide();
+           }
+
+      $('#role').change(function(){
+           var role = $('#role').val();
+           if(role == 'Alumni')
+           {
+            $('#tahunGroup').show();
+           } else {
+            $('#tahunGroup').hide();
+           }
+      });
+ });
+</script>

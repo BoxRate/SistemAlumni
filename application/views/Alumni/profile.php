@@ -58,8 +58,8 @@
                           <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                             <input type="email" name="email" id="email" class="form-control" placeholder="" aria-describedby="helpId" value="<?= $Data['Email']?>">
-                            <small id="helpId" class="text-danger"><?php echo form_error('email') ?></small>
                           </div>
+                          
                         </div>
 
                         <div class="row">
@@ -69,8 +69,9 @@
                             <div class="input-group">
                               <span class="input-group-addon"><i class="fa fa-home"></i></span>
                               <input type="text" name="place" id="place" class="form-control" placeholder="" aria-describedby="helpId" value="<?= $Data['Tempat_Lahir']?>">
-                              <small id="helpId" class="text-danger"><?php echo form_error('place') ?></small>
+                              
                             </div>
+                            <small id="helpId" class="text-danger"><?php echo form_error('place') ?></small>
                           </div>
                         </div>
                         <div class="col-md-6">
@@ -79,8 +80,9 @@
                             <div class="input-group">
                               <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
                               <input type="date" name="ttl" id="ttl" class="form-control" placeholder="" aria-describedby="helpId" value="<?= $Data['Tanggal_Lahir']?>">
-                              <small id="helpId" class="text-danger"><?php echo form_error('ttl') ?></small>
                             </div>
+                            <small id="helpId" class="text-danger"><?php echo form_error('ttl') ?></small>
+
                           </div>
                         </div>
                         </div>
@@ -96,7 +98,7 @@
 
 
                         <div class="form-group">
-                          <label for="pekerjaan">Pekerjaan :</label>
+                          <label for="pekerjaan">Bidang Pekerjaan :</label>
                           <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
                             <select name="pekerjaan" id="pekerjaan" class="form-control" aria-describedby="helpId">
@@ -109,6 +111,15 @@
                               <option value="Scientist" <?= $Data['Pekerjaan'] == 'Scientist' ? ' selected="selected"' : '';?> >Scientist</option>
                             </select>
                             <small id="helpId" class="text-danger"><?php echo form_error('pekerjaan') ?></small>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="nama_pekerjaan">Nama_Pekerjaan :</label>
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                            <input type="text" name="nama_pekerjaan" id="nama_pekerjaan" class="form-control" placeholder="" aria-describedby="helpId" value="<?= $Data['Nama_Pekerjaan']?>">
+                            <small id="helpId" class="text-danger"><?php echo form_error('alamat') ?></small>
                           </div>
                         </div>
                         

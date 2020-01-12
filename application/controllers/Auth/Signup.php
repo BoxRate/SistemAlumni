@@ -33,13 +33,16 @@ class Signup extends CI_Controller {
 				'Nim' => $this->input->post('nim'),
 				'Email' => $this->input->post('email'),
 				'Password' => md5($this->input->post('password')),
-				'role' =>  $this->input->post('role')
+				'role' =>  $this->input->post('role'),
+				'Jurusan' =>  $this->input->post('jurusan')
 			);
 
 			$check;
 			if ($this->input->post('role') == "Mahasiswa") {
 				$check = $this->register_model->insert($data);
 			} else {
+				$data['Tahun_Masuk'] = $this->input->post('tahun_masuk');
+				$data['Tahun_Keluar'] = $this->input->post('tahun_keluar');
 				$check = $this->db->insert('alumni',$data);
 			}
  

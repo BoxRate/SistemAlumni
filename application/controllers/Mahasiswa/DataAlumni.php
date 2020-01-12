@@ -133,7 +133,7 @@ class DataAlumni extends CI_Controller {
         foreach($dataAlumni as $row) {
             $isi = $isi.'
             <tr>
-            <td>'.$row['Nim'].'</td>
+            <td><a href="./getPerson?nim='.$row['Nim'].'">'.$row['Nim'].'</a></td>
             <td>'.$row['Nama'].'</td>
             <td>'.$row['Jurusan'].'</td>
             <td>'.$row['Email'].'</td>
@@ -174,6 +174,21 @@ class DataAlumni extends CI_Controller {
 		$this->load->view('Mahasiswa/data_alumni.php',$this->data);
 		$this->load->view('Mahasiswa/footer.php',$this->data);
 
+    }
+
+    function getPerson() {
+        $nim = $this->input->get('nim');
+
+        $this->data['Pekerjaan'] = $this->dashboard_model->getPerkerjaan($nim);
+        $this->data['Organisasi'] = $this->dashboard_model->getOrganisasi($nim);
+        $this->data['Penghargaan'] = $this->dashboard_model->getPenghargaan($nim);
+        $this->data['Pendidikan'] = $this->dashboard_model->getPendidikan($nim);
+        $data = $this->dashboard_model->getAlumni("Nim =".$nim);
+        $this->data['Data'] = $data[0];
+
+        $this->load->view('Mahasiswa/header.php',$this->data);
+		$this->load->view('Mahasiswa/data_person.php',$this->data);
+		$this->load->view('Mahasiswa/footer.php',$this->data);
     }
 
 
