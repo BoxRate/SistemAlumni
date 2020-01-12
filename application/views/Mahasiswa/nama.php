@@ -40,7 +40,7 @@
                   <?php if(!empty($Alumni)) { ?>
                 <tr>
                 <?php foreach($Alumni as $keys): ?>
-                  <td><?= $keys['Nim']?></td>
+                  <td><a target="_blank" href="<?= base_url()?>index.php/Mahasiswa/DataAlumni/getPerson?nim=<?=$keys['Nim']?>"><?= $keys['Nim']?></a></td>
                   <td><?= $keys['Nama']?></td>
                   <td><?= $keys['Jurusan']?></td>
                   <td><?= $keys['Email']?></td>

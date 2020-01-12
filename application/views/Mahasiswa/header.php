@@ -119,7 +119,7 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pencarian">
           <a class="nav-link nav-link-collapse" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-search"></i>
-            <span class="nav-link-text">Pencarian</span>
+            <span class="nav-link-text">Pencarian Alumni</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
@@ -130,6 +130,9 @@
             </li>
             <li>
               <a class="fa fa-search" href="<?= base_url() ?>index.php/Mahasiswa/tahun"> Berdasarkan Tahun Lulus</a>
+            </li>
+            <li>
+              <a class="fa fa-search" href="<?= base_url() ?>index.php/Mahasiswa/pekerjaan"> Berdasarkan Pekerjaan</a>
             </li>
           </ul>
         </li>

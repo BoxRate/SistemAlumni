@@ -10,13 +10,23 @@
       <!-- Icon Cards-->
       <div class="row">
         <div class="col-sm-6 mb-3" style="margin-left:20px">
-            <form action="<?= base_url() ?>index.php/Mahasiswa/tahun/getTahun" method="post">
-            <?php foreach($Tahun as $value): ?>
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="<?= $value ?>" name="tahun_lulus" class="custom-control-input" value="<?= $value ?>">
-                <label class="custom-control-label" for="<?= $value ?>"><?= $value ?></label>
-            </div>
-            <?php endforeach; ?>
+            <form action="<?= base_url() ?>index.php/Mahasiswa/pekerjaan/getPekerjaan" method="post">
+            <div class="form-group">
+                          <label for="pekerjaan">Bidang Pekerjaan :</label>
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                            <select name="pekerjaan" id="pekerjaan" class="form-control" aria-describedby="helpId">
+                              <option value="Energi">Energi</option>
+                              <option value="Kesehatan">Kesehatan</option>
+                              <option value="Teknologi Informasi">Teknologi Informasi</option>
+                              <option value="PNS">PNS</option>
+                              <option value="Swasta">Swasta</option>
+                              <option value="Wirausaha">Wirausaha</option>
+                              <option value="Scientist">Scientist</option>
+                            </select>
+                            <small id="helpId" class="text-danger"><?php echo form_error('pekerjaan') ?></small>
+                          </div>
+                        </div>
                 <input class="btn btn-outline-primary my-2 my-sm-0" type="submit" value="Search">
             </form>
         </div>
@@ -45,7 +55,7 @@
                   <?php if(!empty($Alumni)) { ?>
                 <tr>
                 <?php foreach($Alumni as $keys): ?>
-                  <td><a target="_blank" href="<?= base_url()?>index.php/Mahasiswa/DataAlumni/getPerson?nim=<?=$keys['Nim']?>"><?= $keys['Nim']?></a></td>
+                  <td><?= $keys['Nim']?></td>
                   <td><?= $keys['Nama']?></td>
                   <td><?= $keys['Jurusan']?></td>
                   <td><?= $keys['Email']?></td>
