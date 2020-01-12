@@ -3,7 +3,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a class="fa fa-search" > Cari Berdasarkan Tahun Kelulusan</a>
+          <a class="fa fa-search" > Cari Alumni Berdasarkan Bidang Pekerjaanya</a>
         </li>
       </ol>
       <?= $this->session->flashdata('message'); ?>
