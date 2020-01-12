@@ -8,7 +8,7 @@ class Nim extends CI_Controller {
 	public function __construct() {
         parent::__construct();
         $this->load->library('form_validation');
-		if($this->session->userdata('Role') != "Mahasiswa") {
+		if(!$this->session->userdata('Role')) {
 			redirect('Auth/login');
         }
         

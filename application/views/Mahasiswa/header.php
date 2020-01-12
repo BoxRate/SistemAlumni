@@ -98,6 +98,24 @@
           </a>
         </li>
 
+        <?php if($User['Role'] == "Alumni") { ?>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Profile">
+          <a class="nav-link nav-link-collapse" data-toggle="collapse" href="#userCollapse" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-user"></i>
+            <span class="nav-link-text">Profile</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="userCollapse">
+            <li>
+              <a class="fa fa-address-card"  href="<?= base_url() ?>index.php/Alumni/profile"> Data Diri</a>
+            </li>
+            <li>
+              <a class="fa fa-history" href="<?= base_url() ?>index.php/Alumni/pengalaman"> Pengalaman</a>
+            </li>
+          </ul>
+        </li>
+        <?php } ?>
+
+
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pencarian">
           <a class="nav-link nav-link-collapse" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-search"></i>
@@ -148,10 +166,17 @@
             <?php } ?>
             </a>
           <ul class="dropdown-menu dropdown-menu-right dropdown-secondary animate slideIn" aria-labelledby="navbarDropdownMenuLink-5">
+          <?php if($User['Role'] == "Alumni") { ?>
               <li>
+              <a class="nav-link" href="<?php echo base_url() ?>index.php/alumni/profile">
+                <i  class="fa fa-fw fa-user"></i> Profile</a>
+              </li>
+              <?php } else { ?>
+                <li>
               <a class="nav-link" href="<?php echo base_url() ?>index.php/mahasiswa/setting">
                 <i  class="fa fa-fw fa-cog"></i> Setting</a>
               </li>
+              <?php } ?>
               <li>
               <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
                 <i  class="fa fa-fw fa-sign-out"></i> Logout</a>

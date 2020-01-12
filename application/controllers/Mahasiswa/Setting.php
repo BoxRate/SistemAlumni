@@ -8,7 +8,7 @@ class Setting extends CI_Controller {
 	public function __construct() {
         parent::__construct();
         $this->load->library('form_validation');
-		if($this->session->userdata('Role') != "Mahasiswa") {
+		if(!$this->session->userdata('Role')) {
 			redirect('Auth/login');
         }
         
@@ -52,7 +52,10 @@ class Setting extends CI_Controller {
                 redirect('Mahasiswa/setting');
             } else {
                 $gbr = $this->upload->data();
-                unlink("./asset/image/Mahasiswa/".$this->input->post('old_image'));
+               if($this->input->post('old_image') != "") {
+                    unlink("./asset/image/Mahasiswa/".$this->input->post('old_image'));
+                }
+                
             }
         } 
         

@@ -64,7 +64,7 @@ class Dashboard_model extends CI_Model {
             $result['Pekerjaan'] = $row->Pekerjaan;
             $result['Alamat'] = $row->Alamat;
             $result['No_Telepon'] = $row->No_Telepon;
-            $result['Image'] = $row->Image;
+            $result['Image'] = $row->image;
             array_push($data, $result);
         }
         

@@ -43,53 +43,70 @@ ul.timeline > li:before {
       <!-- Breadcrumbs-->
       <ol class="breadcrumb bg"  style="background:#edf7fa;">
         <li class="breadcrumb-item">
-          <a class="fa fa-home"> Beranda</a>
+          <a class="fa fa-home"> Beranda Alumni</a>
         </li>
       </ol>
 
       <div class="row mb-3">
-      <div class="col-md-12">
+      <div class="col-md-6">
       <div class="card">
             <div class="card-header" style="background:#f65c78; color:white">
                 <i class="fa fa-address-card"></i> Profil
             </div>
             <div class="card-body">
             <div class="row">
-                <div class="col-md-12">
+                <div class="">
                     <div class="well well-sm">
                         <div class="media">
                             <a class="thumbnail pull-left mr-4">
                                 <?php if($User['Image'] != "") { ?>
-                                    <img class="media-object" src="<?= base_url()?>/asset/image/Mahasiswa/<?= $User['Image'] ?>" width="140px" height="140px"  alt="avatar image">
+                                    <img class="media-object" src="<?= base_url()?>/asset/image/Mahasiswa/<?= $User['Image'] ?>" width="230px" height="230px"  alt="avatar image">
                                     <?php } else { ?>
-                                    <img class="media-object"  src="<?= base_url()?>/asset/image/Mahasiswa/default.png" width="140px" height="140px" alt="avatar image">
+                                    <img class="media-object"  src="<?= base_url()?>/asset/image/Mahasiswa/default.png" width="230px" height="230px" alt="avatar image">
                                 <?php } ?>
                             </a>
                             <div class="media-body">
-                                <h4 class="media-heading text-uppercase font-weight-bold"><?= $User['Nama'] ?></h4><span class="label"><?= $User['Nim']?></span> 
-                                <p><span class="label text-primary text-uppercase font-weight-bold"><?= $Data['Jurusan']?></span>
-                                <p>
-                                    <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-comment"></span> Message</a>
-                                    <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-heart"></span> Favorite</a>
-                                    <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-ban-circle"></span> Unfollow</a>
-                                </p>
+                                <h4 class="media-heading text-uppercase font-weight-bold"><?= $User['Nama'] ?> 
+                                <?php if($Data['Jk'] == "L") { ?>
+                                    <i class=" font-weight-bold fa fa-mars text-primary"></i>
+                                    <?php } else { ?>
+                                    <i class=" font-weight-bold fa fa-venus text-danger"></i>
+                                <?php } ?>
+                                </h4>
+                                <h6><span class="label text-uppercase text-success"><?= $Data['Jurusan']?> </span><span class="label text-uppercase">( <?= $Data['Tahun_Masuk']?> - <?= $Data['Tahun_Keluar']?> )</span></h6>
+                                <h6><span class="label fa fa-address-card"> <?= $Data['Nim']?> </span></h6>
+                                <h6><span class="label text-capitalize fa fa-suitcase"> <?= $Data['Pekerjaan']?> </span></h6>
+                                <h6><span class="label fa fa-birthday-cake"> <?= $Data['Tempat_Lahir']?>, <?= $Data['Tanggal_Lahir']?></span></h6>
+                                <h6><span class="label text-capitalize fa fa-envelope"> <?= $Data['Email']?> </span></h6>
+                                <h6><span class="label fa fa-phone"> <?= $Data['No_Telepon']?> </span></h6>
+                                <h6><span class="label text-capitalize fa fa-home"> <?= $Data['Alamat']?> </span></h6>
+                               
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
 
             </div>
+
+            
             
         </div>
         </div>
+       
+        <div class="col-sm-6">
+            <!-- Example Pie Chart Card-->
+            <canvas id="pieChart" width="100%"></canvas>
+        </div>
+
         </div>
        
       <!-- Example DataTables Card-->
 
       <ol class="breadcrumb bg"  style="background:#edf7fa;">
         <li class="breadcrumb-item">
-          <a class="fa fa-history"> Riwayat Hidup</a>
+          <a class="fa fa-history"> Pengalaman</a>
         </li>
       </ol>
    
@@ -181,3 +198,20 @@ ul.timeline > li:before {
     
     </div>
 
+
+
+
+
+<script>
+var ctx = document.getElementById("pieChart");
+var myPieChart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: ["Pekerjaan", "Organisasi", "Penghargaan", "Pendidikan"],
+    datasets: [{
+      data: [12.21, 15.58, 11.25, 8.32],
+      backgroundColor: ['#f65c78', '#ffd271', '#fff3af', '#c3f584'],
+    }],
+  },
+});
+</script>

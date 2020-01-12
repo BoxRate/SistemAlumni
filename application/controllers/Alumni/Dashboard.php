@@ -31,9 +31,9 @@ class Dashboard extends CI_Controller {
         $data = $this->dashboard_model->getAlumni("Nim =".$this->data['User']['Nim']);
         $this->data['Data'] = $data[0];
 
-        $this->load->view('Alumni/header.php', $this->data);
+        $this->load->view('Mahasiswa/header.php', $this->data);
 		$this->load->view('Alumni/dashboard.php', $this->data);
-		$this->load->view('Alumni/footer.php',$this->data);
+		$this->load->view('Mahasiswa/footer.php',$this->data);
 	}
 
 	function logout(){

@@ -23,20 +23,21 @@ class Login extends CI_Controller {
 		} else {
 			$nim = $this->input->post('nim');
 			$password = md5($this->input->post('password'));
-			$role = $this->input->post('role');
+			// $role = $this->input->post('role');
 
 			$this->db->where('Nim', $nim);
 			$this->db->where('Password', $password);
 
-			$query;
-			if ($role == "Mahasiswa") {
-				$query = $this->db->get('mahasiswa');
-			} else {
+			$query = $this->db->get('mahasiswa'); 
+
+			if ($query->num_rows() == 0) {
+				$this->db->where('Nim', $nim);
+				$this->db->where('Password', $password);
 				$query = $this->db->get('alumni');
 			}
-
+			
 			if ($query->num_rows() > 0) {
-
+				$session_data;
 				foreach($query->result() as $row) {
 					$session_data = array(
 						'Nama' => $row->Nama,
@@ -49,7 +50,7 @@ class Login extends CI_Controller {
 					$this->session->set_userdata($session_data);
 				}
 
-				if ($role == "Mahasiswa") {
+				if ($session_data['Role'] == "Mahasiswa") {
 					redirect('Mahasiswa/dashboard');
 				} else {
 					redirect('Alumni/dashboard');
