@@ -39,7 +39,7 @@
               <tbody>
                   <?php if(!empty($Pekerjaan)) { ?>
                 <tr>
-                  <td><a target="_blank" href="<?= base_url()?>index.php/Mahasiswa/DataAlumni/getPerson?nim=<?=$keys['Nim']?>"><?= $Nim?></a></td>
+                  <td><a target="_blank" href="<?= base_url()?>index.php/Mahasiswa/DataAlumni/getPerson?nim=<?=$Nim?>"><?= $Nim?></a></td>
                   <td><?= $Nama?></td>
                   <td><?= $Jurusan?></td>
                   <td><?= $Email?></td>
