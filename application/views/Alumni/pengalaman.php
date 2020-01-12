@@ -425,15 +425,15 @@
       </div>
       <div class="modal-body">
   
-        <button class="btn col-md-12 mb-1" style="background:#f65c78; color:white">
+        <button class="btn col-md-12 mb-1" style="background:#f65c78; color:white" data-toggle="modal" data-target="#pekerjaanModal">
             Pekerjaan
         </button>
         
-        <button class="btn col-md-12 mb-1" style="background:#ffd271;">
+        <button class="btn col-md-12 mb-1" style="background:#ffd271;" data-toggle="modal" data-target="#organisasiModal">
             Organisasi
         </button>
         
-        <button class="btn col-md-12 mb-1" style="background:#fff3af;">
+        <button class="btn col-md-12 mb-1" style="background:#fff3af;" data-toggle="modal" data-target="#penghargaanModal">
             Penghargaan
         </button>
         
@@ -456,30 +456,30 @@
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form action="<?= base_url() ?>index.php/Alumni/pengalaman/editPendidikan" method="post" >
+        <form action="<?= base_url() ?>index.php/Alumni/pengalaman/addPendidikan" method="post" >
         <div class="modal-body">    
                 <div class="form-group">
                     <label for="">Nama Instansi</label>
-                    <input type="text" name="nama" id="" class="form-control" placeholder="" aria-describedby="">
+                    <input type="text" name="nama" id="" class="form-control" placeholder="" aria-describedby="" required>
                 </div>
             <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="">Tahun Masuk</label>
-                    <input type="number" name="tahun_masuk" id="" class="form-control" placeholder="" aria-describedby="">
+                    <input type="number" name="tahun_masuk" id="" class="form-control" placeholder="" aria-describedby="" required>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="">Tahun Keluar</label>
-                    <input type="number" name="tahun_keluar" id="" class="form-control" placeholder="" aria-describedby="">
+                    <input type="number" name="tahun_keluar" id="" class="form-control" placeholder="" aria-describedby="" required>
                 </div>
             </div>
             </div>
 
             <div class="form-group">
                 <label for="">Kota</label>
-                <input type="text" name="keterangan" id="" class="form-control" placeholder="" aria-describedby="">
+                <input type="text" name="keterangan" id="" class="form-control" placeholder="" aria-describedby="" required>
             </div>
         
         </div>
@@ -493,6 +493,152 @@
         
     </div>
     </div>
+
+
+    <!-- Modal Penghargaan -->
+    <div class="modal fade" id="penghargaanModal" tabindex="-1" role="dialog" aria-labelledby="Ubah" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Tambah Penghargaan</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="<?= base_url() ?>index.php/Alumni/pengalaman/addPenghargaan" method="post" >
+                        <div class="modal-body"> 
+                            <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="">Nama Penghargaan</label>
+                                    <input type="text" name="nama" id="" class="form-control" placeholder="" aria-describedby="" required>
+                                </div>
+                           </div>
+                           <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Tahun</label>
+                                    <input type="number" name="tahun" id="" class="form-control" placeholder="" aria-describedby="" required>
+                                </div>
+                            </div>
+                           </div>
+
+                           <div class="form-group">
+                             <label for="">Keterangan</label>
+                             <textarea type="text" name="keterangan" id="" class="form-control" placeholder="" aria-describedby=""></textarea>
+                           </div>
+                        
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                            <input type="submit" class="btn btn-primary" value="Tambah">
+                        </div>
+
+                        </form>
+                        </div>
+
+                    </div>
+                </div>
+            <!-- End Modal -->
+
+
+    <!-- Organisasi modal -->
+    <div class="modal fade" id="organisasiModal" tabindex="-1" role="dialog" aria-labelledby="Ubah" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Tambah Organisasi</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="<?= base_url() ?>index.php/Alumni/pengalaman/addOrganisasi" method="post" >
+                <div class="modal-body">    
+                        <div class="form-group">
+                            <label for="">Nama Organisasi</label>
+                            <input type="text" name="nama" id="" class="form-control" placeholder="" aria-describedby="">
+                        </div>
+                    <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">Tahun Masuk</label>
+                            <input type="number" name="tahun_masuk" id="" class="form-control" placeholder="" aria-describedby="">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">Tahun Keluar</label>
+                            <input type="number" name="tahun_keluar" id="" class="form-control" placeholder="" aria-describedby="" >
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Keterangan</label>
+                        <textarea type="text" name="keterangan" id="" class="form-control" placeholder="" aria-describedby=""></textarea>
+                    </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <input type="submit" class="btn btn-primary" value="Tambah">
+                </div>
+
+                </form>
+                </div>
+                
+            </div>
+        </div>
+        <!-- End Modal -->
+
+        <!-- Pekerjaan Modal -->
+<div class="modal fade" id="pekerjaanModal" tabindex="-1" role="dialog" aria-labelledby="Ubah" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Pekerjaan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="<?= base_url() ?>index.php/Alumni/pengalaman/addPekerjaan" method="post" >
+            <div class="modal-body">   
+                    <div class="form-group">
+                        <label for="">Nama Pekerjaan</label>
+                        <input type="text" name="nama" id="" class="form-control" placeholder="" aria-describedby="">
+                    </div>
+                <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">Tahun Masuk</label>
+                        <input type="number" name="tahun_masuk" id="" class="form-control" placeholder="" aria-describedby="">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">Tahun Keluar</label>
+                        <input type="number" name="tahun_keluar" id="" class="form-control" placeholder="" aria-describedby="">
+                    </div>
+                </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Keterangan</label>
+                    <textarea type="text" name="keterangan" id="" class="form-control" placeholder="" aria-describedby=""></textarea>
+                </div>
+            
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                <input type="submit" class="btn btn-primary" value="Simpan">
+            </div>
+
+            </form>
+            </div>
+            
+        </div>
+    </div>
+
+        <!-- End Modal -->
 
     <script>
 // Add the following code if you want the name of the file appear on select

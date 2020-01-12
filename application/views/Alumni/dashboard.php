@@ -209,7 +209,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: ["Pekerjaan", "Organisasi", "Penghargaan", "Pendidikan"],
     datasets: [{
-      data: [12.21, 15.58, 11.25, 8.32],
+      data: [<?=count($Pekerjaan)?>, <?=count($Organisasi)?>, <?=count($Penghargaan)?>, <?=count($Pendidikan)?>],
       backgroundColor: ['#f65c78', '#ffd271', '#fff3af', '#c3f584'],
     }],
   },

@@ -179,6 +179,91 @@ class Pengalaman extends CI_Controller {
         }
     }
 
+    function addPendidikan() {
+        $data = array(
+            'Nama_Instansi' => $this->input->post('nama'),
+            'Nim' => $this->data['User']['Nim'],
+            'Tahun_Masuk' => $this->input->post('tahun_masuk'),
+            'Tahun_Keluar' => $this->input->post('tahun_keluar'),
+            'Kota' => $this->input->post('keterangan')
+        );
+
+        $check = $this->db->insert('r_pendidikan', $data);
+
+        if($check) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Berhasil Menambah data</div>');
+            redirect('Alumni/pengalaman');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal Menambah data</div>');
+            redirect('Alumni/pengalam');
+        }
+
+    }
+
+
+    function addPenghargaan() {
+        $data = array(
+            'Nama_Penghargaan' => $this->input->post('nama'),
+            'Nim' => $this->data['User']['Nim'],
+            'Tahun' => $this->input->post('tahun'),
+            'Keterangan' => $this->input->post('keterangan')
+        );
+
+        $check = $this->db->insert('r_penghargaan', $data);
+
+        if($check) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Berhasil Menambah data</div>');
+            redirect('Alumni/pengalaman');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal Menambah data</div>');
+            redirect('Alumni/pengalam');
+        }
+
+    }
+
+    function addOrganisasi() {
+        $data = array(
+            'Nama_Organisasi' => $this->input->post('nama'),
+            'Nim' => $this->data['User']['Nim'],
+            'Tahun_Masuk' => $this->input->post('tahun_masuk'),
+            'Tahun_Keluar' => $this->input->post('tahun_keluar'),
+            'Keterangan' => $this->input->post('keterangan')
+        );
+
+        $check = $this->db->insert('r_organisasi', $data);
+
+        if($check) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Berhasil Menambah data</div>');
+            redirect('Alumni/pengalaman');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal Menambah data</div>');
+            redirect('Alumni/pengalam');
+        }
+
+    }
+
+    function addPekerjaan() {
+        $data = array(
+            'Nama_Pekerjaan' => $this->input->post('nama'),
+            'Nim' => $this->data['User']['Nim'],
+            'Tahun_Masuk' => $this->input->post('tahun_masuk'),
+            'Tahun_Keluar' => $this->input->post('tahun_keluar'),
+            'Keterangan' => $this->input->post('keterangan')
+        );
+
+        $check = $this->db->insert('p_perkerjaan', $data);
+
+        if($check) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Berhasil Menambah data</div>');
+            redirect('Alumni/pengalaman');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal Menambah data</div>');
+            redirect('Alumni/pengalam');
+        }
+
+    }
+
+
 }
 
 ?>
