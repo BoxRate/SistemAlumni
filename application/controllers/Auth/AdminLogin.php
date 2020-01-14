@@ -21,7 +21,7 @@ class AdminLogin extends CI_Controller {
 			$this->load->view('Auth/adminlogin');
 		} else {
 			$username = $this->input->post('username');
-			$password = md5($this->input->post('password'));
+			$password = $this->input->post('password');
 			// $role = $this->input->post('role');
 
 			$this->db->where('Username', $username);

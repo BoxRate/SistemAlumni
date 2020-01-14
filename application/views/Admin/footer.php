@@ -20,6 +20,7 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+     <!-- Custom scripts for all pages-->
     <script src="<?= base_url() ?>asset/material-pro/assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<?= base_url() ?>asset/material-pro/assets/plugins/bootstrap/js/tether.min.js"></script>
@@ -37,7 +38,7 @@
     <!-- ============================================================== -->
     <!-- This page plugins -->
     <!-- ============================================================== -->
-   
+    
 </body>
 
 </html>

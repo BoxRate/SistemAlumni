@@ -9,6 +9,7 @@ class Dashboard extends CI_Controller {
         parent::__construct();
 		$this->load->library('form_validation');
 		$this->load->model('dashboard_model');
+		$this->load->model('admin_model');
 		if(!$this->session->userdata('Username')) {
 			redirect('Auth/adminlogin');
 		}
@@ -27,6 +28,8 @@ class Dashboard extends CI_Controller {
 		$tahun = $this->dashboard_model->getTahun();
 		$dataTahun = array();
 		$dataCount = array();
+		$mahasiswaCount = $this->admin_model->getCountMahasiswa();
+		$alumniCount = $this->admin_model->getCountAlumni();
 
 		foreach($tahun->result() as $row) {
 		 	array_push($dataTahun, $row->Tahun_Keluar);
@@ -35,6 +38,8 @@ class Dashboard extends CI_Controller {
 
 		$this->data['Tahun'] = $dataTahun;
 		$this->data['Count'] = $dataCount;
+		$this->data['mhs'] = $mahasiswaCount;
+		$this->data['alumni'] = $alumniCount;
 
         $this->load->view('Admin/header.php', $this->data);
 		$this->load->view('Admin/dashboard.php', $this->data);

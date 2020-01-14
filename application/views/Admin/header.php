@@ -23,6 +23,8 @@
     <link href="<?= base_url() ?>asset/material-pro/html/css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="<?= base_url() ?>asset/material-pro/html/css/colors/blue.css" id="theme" rel="stylesheet">
+    <!-- Page level plugin CSS-->
+    <link href="<?php echo base_url()?>asset/sb-admin/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -111,7 +113,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="<?php echo base_url() ?>index.php/Admin/dashboard/">
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             
@@ -134,10 +136,7 @@
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
-                        <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
-                            <form class="app-search">
-                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
-                        </li>
+                        
                     </ul>
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
@@ -157,7 +156,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
-                                <a href="" class="dropdown-item" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i> Setting</a>
+                                <a href="<?php echo base_url() ?>index.php/Admin/akun" class="dropdown-item" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i> Setting</a>
                                 <div class="dropdown-divider"></div>
                                 <a href="" class="dropdown-item" data-toggle="modal" title="Logout" data-target="#logoutModal"><i class="mdi mdi-power"></i> Logout</a>
                             </div>
@@ -180,12 +179,17 @@
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url() ?>index.php/Admin/dashboard/" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
+                        <li> <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i class="mdi mdi-account-search"></i><span class="hide-menu">Cari Mahasiswa</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i class="mdi mdi-account-search"></i><span class="hide-menu">Cari Alumni</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url() ?>index.php/Admin/dataMahasiswa/" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Data Mahasiswa</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url() ?>index.php/Admin/dataAlumni/" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Data Alumni</span></a>
+                        </li>
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url() ?>index.php/Admin/akun/" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Akun Admin</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Data Mahasiswa</span></a>
-                        </li>
-                        <li> <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Data Alumni</span></a>
-                        </li>
+                       
                     </ul>
                    
                 </nav>

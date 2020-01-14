@@ -4,6 +4,7 @@ class Dashboard_model extends CI_Model {
     function getTahun() {
         $this->db->distinct();
         $this->db->select('Tahun_Keluar');
+        $this->db->order_by("Tahun_Keluar", "asc");
         return $query = $this->db->get('alumni');
     }
 

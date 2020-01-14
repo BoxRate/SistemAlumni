@@ -84,13 +84,13 @@
             </select>
           </div>
 
-          <div id="tahunGroup" class="form-group" >
+          <div class="form-group" >
             <div class="form-row">
               <div class="col-md-6">
                   <label for="tahun_masuk">Tahun Masuk</label>
-                  <input class="form-control" id="tahun_masuk" type="text" placeholder="" name="tahun_masuk" >
+                  <input class="form-control" id="tahun_masuk" type="text" placeholder="" name="tahun_masuk" required>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6" id="tahunKeluar" >
                 <label for="tahun_keluar">Tahun Lulus</label>
                 <input class="form-control" id="tahun_keluar" type="text" placeholder="" name="tahun_keluar" >
             </div>
@@ -122,18 +122,18 @@
       var role = $('#role').val();
            if(role == 'Alumni')
            {
-            $('#tahunGroup').show();
+            $('#tahunKeluar').show();
            } else {
-            $('#tahunGroup').hide();
+            $('#tahunKeluar').hide();
            }
 
       $('#role').change(function(){
            var role = $('#role').val();
            if(role == 'Alumni')
            {
-            $('#tahunGroup').show();
+            $('#tahunKeluar').show();
            } else {
-            $('#tahunGroup').hide();
+            $('#tahunKeluar').hide();
            }
       });
  });

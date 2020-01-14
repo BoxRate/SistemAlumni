@@ -166,8 +166,8 @@
         bindto: '#countMhs',
         data: {
             columns: [
-                ['Mahasiswa', 10],
-                ['Alumni', 40],
+                ['Mahasiswa', <?=$mhs?>],
+                ['Alumni', <?=$alumni?>],
             ],
 
             type: 'donut',
