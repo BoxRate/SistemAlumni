@@ -11,6 +11,10 @@ class Dashboard extends CI_Controller {
 		$this->load->model('dashboard_model');
 		if(!$this->session->userdata('Role') == "Alumni") {
 			redirect('Auth/login');
+		}
+		
+		if(!$this->session->userdata()) {
+			redirect('Auth/login');
         }
         
         $dataUser = $this->session->all_userdata();
@@ -37,10 +41,11 @@ class Dashboard extends CI_Controller {
 	}
 
 	function logout(){
-		
 		foreach($this->data as $row => $row_value) {
 			$this->session->unset_userdata($row);
 		}
+		
+		$this->session->sess_destroy();
 		redirect('Auth/login');
 	}
 	

@@ -8,12 +8,12 @@ class Dashboard extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->model('dashboard_model');
 
-		if($this->session->userdata('Role') == "Alumni") {
-			redirect('Alumni/dashboard');
-		}
-
 		if(!$this->session->userdata('Role')) {
 			redirect('Auth/login');
+		}
+
+		if($this->session->userdata('Role') == "Alumni") {
+			redirect('Alumni/dashboard');
 		}
 	}
 
@@ -59,6 +59,7 @@ class Dashboard extends CI_Controller {
 		foreach($data as $row => $row_value) {
 			$this->session->unset_userdata($row);
 		}
+		$this->session->sess_destroy();
 		redirect('Auth/login');
 	}
 	
