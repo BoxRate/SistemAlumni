@@ -134,11 +134,11 @@ class DataAlumni extends CI_Controller {
             $isi = $isi.'
             <tr>
             <td><a href="./getPerson?nim='.$row['Nim'].'">'.$row['Nim'].'</a></td>
-            <td>'.$row['Nama'].'</td>
-            <td>'.$row['Jurusan'].'</td>
-            <td>'.$row['Email'].'</td>
-            <td>'.$row['Tahun_Keluar'].'</td>
-            <td>'.$row['Pekerjaan'].'</td>
+            <td><a href="./getPerson?nim='.$row['Nim'].'">'.$row['Nama'].'</a></td>
+            <td><a href="./getPerson?nim='.$row['Nim'].'">'.$row['Jurusan'].'</a></td>
+            <td><a href="./getPerson?nim='.$row['Nim'].'">'.$row['Email'].'</a></td>
+            <td><a href="./getPerson?nim='.$row['Nim'].'">'.$row['Tahun_Keluar'].'</a></td>
+            <td><a href="./getPerson?nim='.$row['Nim'].'">'.$row['Pekerjaan'].'</a></td>
             </tr>
             ';
             $i+=1;

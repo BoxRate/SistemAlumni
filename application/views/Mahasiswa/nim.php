@@ -40,11 +40,11 @@
                   <?php if(!empty($Pekerjaan)) { ?>
                 <tr>
                   <td><a target="_blank" href="<?= base_url()?>index.php/Mahasiswa/DataAlumni/getPerson?nim=<?=$Nim?>"><?= $Nim?></a></td>
-                  <td><?= $Nama?></td>
-                  <td><?= $Jurusan?></td>
-                  <td><?= $Email?></td>
-                  <td><?= $Tahun_Keluar?></td>
-                  <td><?= $Pekerjaan?></td>
+                  <td><a target="_blank" href="<?= base_url()?>index.php/Mahasiswa/DataAlumni/getPerson?nim=<?=$Nim?>"><?= $Nama?></a></td>
+                  <td><a target="_blank" href="<?= base_url()?>index.php/Mahasiswa/DataAlumni/getPerson?nim=<?=$Nim?>"><?= $Jurusan?></a></td>
+                  <td><a target="_blank" href="<?= base_url()?>index.php/Mahasiswa/DataAlumni/getPerson?nim=<?=$Nim?>"><?= $Email?></a></td>
+                  <td><a target="_blank" href="<?= base_url()?>index.php/Mahasiswa/DataAlumni/getPerson?nim=<?=$Nim?>"><?= $Tahun_Keluar?></a></td>
+                  <td><a target="_blank" href="<?= base_url()?>index.php/Mahasiswa/DataAlumni/getPerson?nim=<?=$Nim?>"><?= $Pekerjaan?></a></td>
                 </tr>
 
                   <?php  } ?>

@@ -50,7 +50,8 @@ class Pekerjaan extends CI_Controller {
                 $result['Tanggal_Lahir'] = $row->Tanggal_Lahir;
                 $result['Pekerjaan'] = $row->Pekerjaan;
                 $result['Alamat'] = $row->Alamat;
-                $result['No_Telepon'] = $row->No_Telepon; 
+                $result['No_Telepon'] = $row->No_Telepon;
+                $result['Nama_Pekerjaan'] = $row->Nama_Pekerjaan;
                 array_push($this->data['Alumni'], $result);         
             } 
                 $this->load->view('Mahasiswa/header.php',$this->data);

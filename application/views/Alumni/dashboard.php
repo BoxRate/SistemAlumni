@@ -67,10 +67,10 @@ ul.timeline > li:before {
                             </a>
                             <div class="media-body">
                                 <h4 class="media-heading text-uppercase font-weight-bold"><?= $User['Nama'] ?> 
-                                <?php if($Data['Jk'] == "L") { ?>
-                                    <i class=" font-weight-bold fa fa-mars text-primary"></i>
-                                    <?php } else { ?>
+                                <?php if($Data['Jk'] == "P") { ?>
                                     <i class=" font-weight-bold fa fa-venus text-danger"></i>
+                                    <?php } else { ?>
+                                    <i class=" font-weight-bold fa fa-mars text-primary"></i>
                                 <?php } ?>
                                 </h4>
                                 <h6><span class="label text-uppercase text-success"><?= $Data['Jurusan']?> </span><span class="label text-uppercase">( <?= $Data['Tahun_Masuk']?> - <?= $Data['Tahun_Keluar']?> )</span></h6>
