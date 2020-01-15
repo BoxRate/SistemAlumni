@@ -25,7 +25,7 @@ class Admin_Model extends CI_Model {
     }
 
     function getCountMahasiswa() {
-        $query = $this->db->get('alumni');
+        $query = $this->db->get('mahasiswa');
         return $query->num_rows();
     }
 
