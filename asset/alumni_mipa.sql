@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2020 at 11:17 PM
+-- Generation Time: Jan 15, 2020 at 12:11 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `alumni_mipa`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `Username` varchar(50) NOT NULL,
+  `Nama` varchar(50) NOT NULL,
+  `Password` varchar(50) NOT NULL,
+  `image` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`Username`, `Nama`, `Password`, `image`) VALUES
+('admin', 'Administrasi', 'admin', ''),
+('admin12', 'SEO Tokopedia', 'admin', ''),
+('admin2', 'Andika Pratama', 'andika123', '');
 
 -- --------------------------------------------------------
 
@@ -52,7 +74,8 @@ CREATE TABLE `alumni` (
 --
 
 INSERT INTO `alumni` (`Nim`, `Nama`, `Password`, `Jenis_Kelamin`, `Jurusan`, `Tahun_Masuk`, `Tahun_Keluar`, `Tempat_Lahir`, `Tanggal_Lahir`, `Alamat`, `No_Telepon`, `Email`, `Pekerjaan`, `Nama_Pekerjaan`, `role`, `image`) VALUES
-('1508107010017', 'Mina Goroshi', '', 'P', 'Biologi', 2015, 2020, 'Tamiyang', '1997-01-02', 'Dimana Aja', '08236718991', 'minamina@gmail.com', 'Scientist', 'Ahli Biologi', 'Alumni', '');
+('1208107010009', 'Prinanda Rahmatullah', 'e5a85482d8b9bedbd68c39cb22aea751', 'L', 'Kimia', 2012, 2017, 'Sabang', '1998-10-10', 'Bakaran Batu', '+6281376077774', 'inovatornusantara@gmail.com', 'Teknologi Informasi', 'Web Developer', 'Alumni', 'be5344e9063fa04e48732a0ab78212e0.jpg'),
+('1708107010018', 'Budi Gunawan', '74b87337454200d4d33f80c4663dc5e5', '', 'Informatika', 2017, 2020, '', '0000-00-00', '', '', 'apratama918@gmail.com', 'Scientist', '', 'Alumni', '41f479f46b6705b2a70894b45b7ca6bd.jpg');
 
 -- --------------------------------------------------------
 
@@ -74,8 +97,8 @@ INSERT INTO `jurusan` (`id_jurusan`, `Nama_Jurusan`) VALUES
 (2, 'Fisika'),
 (3, 'Kimia'),
 (4, 'Biologi'),
-(5, 'Ilmu Kelautan'),
-(6, 'Budidaya Perairan'),
+(5, 'Manajemen Informatika'),
+(6, 'Teknik Elektronika'),
 (7, 'Informatika'),
 (8, 'Statistika'),
 (9, 'Farmasi');
@@ -89,6 +112,7 @@ INSERT INTO `jurusan` (`id_jurusan`, `Nama_Jurusan`) VALUES
 CREATE TABLE `mahasiswa` (
   `Nim` varchar(14) NOT NULL,
   `Nama` varchar(250) NOT NULL,
+  `Tahun_Masuk` int(5) NOT NULL,
   `Password` varchar(250) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `image` varchar(250) NOT NULL,
@@ -100,10 +124,8 @@ CREATE TABLE `mahasiswa` (
 -- Dumping data for table `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`Nim`, `Nama`, `Password`, `Email`, `image`, `role`, `Jurusan`) VALUES
-('1608107010018', 'Andika Pratama', 'e5a85482d8b9bedbd68c39cb22aea751', 'apratama918@gmail.com', '5c63e7d4006726662e9a515f750c30f1.png', 'Mahasiswa', ''),
-('1708107010018', 'Andika Pratama', '74b87337454200d4d33f80c4663dc5e5', 'apratama918@gmail.com', '', 'Mahasiswa', ''),
-('1708107010034', 'Budi Gunawan', 'b0baee9d279d34fa1dfd71aadb908c3f', 'apratama918@gmail.com', '7d187b48ca1cb645124d9c8f5451cc4b.jpg', 'Mahasiswa', '');
+INSERT INTO `mahasiswa` (`Nim`, `Nama`, `Tahun_Masuk`, `Password`, `Email`, `image`, `role`, `Jurusan`) VALUES
+('1808001010020', 'Nanta Setiaaaa', 2018, '25f9e794323b453885f5181f1b624d0b', 'inovatornusantara@gmail.com', '', 'Mahasiswa', 'Informatika');
 
 -- --------------------------------------------------------
 
@@ -120,6 +142,14 @@ CREATE TABLE `p_perkerjaan` (
   `Keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `p_perkerjaan`
+--
+
+INSERT INTO `p_perkerjaan` (`id`, `Nama_Pekerjaan`, `Tahun_Masuk`, `Tahun_Keluar`, `Nim`, `Keterangan`) VALUES
+(3, 'Web Developer', 2016, 2017, '1608107010009', 'aad'),
+(4, 'SEO Tokopedia', 2016, 2020, '1208107010009', 'Tokepedia Cap Jempol');
+
 -- --------------------------------------------------------
 
 --
@@ -134,6 +164,13 @@ CREATE TABLE `r_organisasi` (
   `Nama_Organisasi` varchar(250) NOT NULL,
   `Keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `r_organisasi`
+--
+
+INSERT INTO `r_organisasi` (`id`, `Nim`, `Tahun_Masuk`, `Tahun_Keluar`, `Nama_Organisasi`, `Keterangan`) VALUES
+(4, '1208107010009', 2016, 2017, 'BEM', 'BEM MIPA');
 
 -- --------------------------------------------------------
 
@@ -150,6 +187,14 @@ CREATE TABLE `r_pendidikan` (
   `Kota` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `r_pendidikan`
+--
+
+INSERT INTO `r_pendidikan` (`id`, `Nim`, `Tahun_Masuk`, `Tahun_Keluar`, `Nama_Instansi`, `Kota`) VALUES
+(3, '1208107010009', 2013, 2016, 'SMA 1 Sabang', 'Sabang'),
+(4, '1208107010009', 2010, 2013, 'SMP 1 Sabang', 'Sabang');
+
 -- --------------------------------------------------------
 
 --
@@ -165,8 +210,21 @@ CREATE TABLE `r_penghargaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `r_penghargaan`
+--
+
+INSERT INTO `r_penghargaan` (`id`, `Nim`, `Nama_Penghargaan`, `Tahun`, `Keterangan`) VALUES
+(4, '1208107010009', 'Lomba Mengaji', 2012, 'Juara 2');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`Username`);
 
 --
 -- Indexes for table `alumni`
@@ -224,25 +282,25 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `p_perkerjaan`
 --
 ALTER TABLE `p_perkerjaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `r_organisasi`
 --
 ALTER TABLE `r_organisasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `r_pendidikan`
 --
 ALTER TABLE `r_pendidikan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `r_penghargaan`
 --
 ALTER TABLE `r_penghargaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
