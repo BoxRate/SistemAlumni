@@ -10,7 +10,7 @@ class Dashboard extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->model('dashboard_model');
 		$this->load->model('admin_model');
-		if(!$this->session->userdata('Username')) {
+		if(!$this->session->userdata('Username') ) {
 			redirect('Auth/adminlogin');
 		}
         

@@ -179,9 +179,7 @@
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url() ?>index.php/Admin/dashboard/" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i class="mdi mdi-account-search"></i><span class="hide-menu">Cari Mahasiswa</span></a>
-                        </li>
-                        <li> <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i class="mdi mdi-account-search"></i><span class="hide-menu">Cari Alumni</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url() ?>index.php/Admin/pencarian/" aria-expanded="false"><i class="mdi mdi-account-search"></i><span class="hide-menu">Pencarian</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url() ?>index.php/Admin/dataMahasiswa/" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Data Mahasiswa</span></a>
                         </li>
