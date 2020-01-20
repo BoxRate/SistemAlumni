@@ -31,8 +31,8 @@
           <?= $this->session->flashdata('message'); ?>
         <form action="<?= base_url() ?>index.php/Auth/login/login_validation" method="post">
           <div class="form-group">
-            <label for="exampleInputEmail1">Nim</label>
-            <input class="form-control" id="exampleInputEmail1" type="number" name="nim" placeholder="Nomor Induk Mahasiswa" required="">
+            <label for="exampleInputEmail1">Email</label>
+            <input class="form-control" id="exampleInputEmail1" type="email" name="email" placeholder="Email" required="">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>

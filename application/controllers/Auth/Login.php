@@ -15,23 +15,23 @@ class Login extends CI_Controller {
 
 	public function login_validation() {
 
-		$this->form_validation->set_rules('nim', 'Nim', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('Auth/login');
 		} else {
-			$nim = $this->input->post('nim');
+			$email = $this->input->post('email');
 			$password = md5($this->input->post('password'));
 			// $role = $this->input->post('role');
 
-			$this->db->where('Nim', $nim);
+			$this->db->where('Email', $email);
 			$this->db->where('Password', $password);
 
 			$query = $this->db->get('mahasiswa'); 
 
 			if ($query->num_rows() == 0) {
-				$this->db->where('Nim', $nim);
+				$this->db->where('Email', $email);
 				$this->db->where('Password', $password);
 				$query = $this->db->get('alumni');
 			}

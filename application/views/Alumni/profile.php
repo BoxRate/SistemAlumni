@@ -1,3 +1,18 @@
+<style>
+.fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+.fill img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+
+</style>
+
 <div class="content-wrapper">
     <div class="container-fluid mt-3">
 
@@ -163,9 +178,9 @@
                     <form action="<?php echo base_url() ?>index.php/Alumni/profile/uploadImage" method="post" enctype="multipart/form-data">
                     <div class="card float-right" style="width: 20rem;">
                         <?php if($User['Image'] != "") { ?>
-                            <img class="card-img-top" src="<?= base_url()?>/asset/image/Mahasiswa/<?= $User['Image'] ?>" width="300px" height="300px" alt="avatar image">
+                            <img class="card-img-top" src="<?= base_url()?>/asset/image/Mahasiswa/<?= $User['Image'] ?>" style="width: 300px; height: 300px; object-fit: cover;"  alt="avatar image">
                         <?php } else { ?>
-                            <img class="card-img-top" src="<?= base_url()?>/asset/image/Mahasiswa/default.png" width="300px" height="300px"  alt="avatar image">
+                            <img class="card-img-top" src="<?= base_url()?>/asset/image/Mahasiswa/default.png" style="width: 300px; height: 300px; object-fit: cover;"  alt="avatar image">
                         <?php } ?>
                         <div class="card-body">
                         <div class="form-group">

@@ -60,9 +60,9 @@ ul.timeline > li:before {
                         <div class="media">
                             <a class="thumbnail pull-left mr-4">
                                 <?php if($Data['Image'] != "") { ?>
-                                    <img class="media-object" src="<?= base_url()?>/asset/image/Mahasiswa/<?= $Data['Image'] ?>" width="230px" height="230px"  alt="avatar image">
+                                    <img class="media-object" src="<?= base_url()?>/asset/image/Mahasiswa/<?= $Data['Image'] ?>" style="width: 230px; height: 230px; object-fit: cover;"  alt="avatar image">
                                     <?php } else { ?>
-                                    <img class="media-object"  src="<?= base_url()?>/asset/image/Mahasiswa/default.png" width="230px" height="230px" alt="avatar image">
+                                    <img class="media-object"  src="<?= base_url()?>/asset/image/Mahasiswa/default.png" style="width: 230px; height: 230px; object-fit: cover;" alt="avatar image">
                                 <?php } ?>
                             </a>
                             <div class="media-body">

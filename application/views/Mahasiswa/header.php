@@ -163,9 +163,9 @@
           <a class="btn dropdown" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false"> <?php echo $User['Nama'] ?> 
             <?php if($User['Image'] != "") { ?>
-              <img src="<?= base_url()?>/asset/image/Mahasiswa/<?= $User['Image'] ?>" width="40px" height="40px" class="rounded-circle z-depth-0" alt="avatar image">
+              <img src="<?= base_url()?>/asset/image/Mahasiswa/<?= $User['Image'] ?>" style="width: 40px; height: 40px; object-fit: cover;" class="rounded-circle z-depth-0" alt="avatar image">
             <?php } else { ?>
-              <img src="<?= base_url()?>/asset/image/Mahasiswa/default.png" width="40px" height="40px" class="rounded-circle z-depth-0" alt="avatar image">
+              <img src="<?= base_url()?>/asset/image/Mahasiswa/default.png" style="width: 40px; height: 40px; object-fit: cover;" class="rounded-circle z-depth-0" alt="avatar image">
             <?php } ?>
             </a>
           <ul class="dropdown-menu dropdown-menu-right dropdown-secondary animate slideIn" aria-labelledby="navbarDropdownMenuLink-5">

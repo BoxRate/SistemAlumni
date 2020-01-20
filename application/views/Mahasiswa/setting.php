@@ -48,9 +48,9 @@
 
     <div class="col-md-3 mt-5" style="margin-left: 100px "> 
         <?php if($User['Image'] != "") { ?>
-            <img src="<?= base_url()?>/asset/image/Mahasiswa/<?= $User['Image'] ?>" width="300px" height="300px" alt="avatar image">
+            <img src="<?= base_url()?>/asset/image/Mahasiswa/<?= $User['Image'] ?>" style="width: 300px; height: 300px; object-fit: cover;" alt="avatar image">
         <?php } else { ?>
-            <img src="<?= base_url()?>/asset/image/Mahasiswa/default.png" width="300px" height="300px"  alt="avatar image">
+            <img src="<?= base_url()?>/asset/image/Mahasiswa/default.png" style="width: 300px; height: 300px; object-fit: cover;"  alt="avatar image">
         <?php } ?>
     </div>
 
